@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("https://s3.amazonaws.com/external-pages/sanjana-varghese/96421a97b83034f52c410befe7cefa20.jpg");
+}
+
+.frame {
+    --block-size: 3vw;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    display: grid;
+    grid-template-rows: var(--block-size) calc(12 * var(--block-size)) var(
+            --block-size
+        );
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(24, var(--block-size));
+    grid-template-rows: repeat(12, var(--block-size));
+    border:1px solid white;
+}
+
+.block {
+    width: var(--block-size);
+    height: var(--block-size);
+}
+
+.empty {
+}
+
+.wall {
+    background: black;
+    box-sizing: border-box;
+}
+
+.diamond {
+    background: url("https://s3.amazonaws.com/external-pages/sanjana-varghese/office_building.png");
+    background-size: 3vh;
+    background-repeat: no-repeat;
+    filter: invert(1);
+}
+
+/*.diamond::before {
+    text-align: center;
+    font-size: 3em;
+    height: 3vw;
+    line-height: 3vw;
+    color: black;
+    content: "🏢";
+*/
+}
+
+.exit {
+    /*background: ;
+    background-size: 50px 35px;
+    background-position: center center;
+    background-color: lightblue;*/
+}
+
+.exit.show {
+    opacity: 1;
+}
+
+.player {
+    background: url("https://s3.amazonaws.com/external-pages/sanjana-varghese/564750.png");
+    background-size: 3vh;
+    background-repeat: no-repeat;
+    filter: invert(1);
+}
+
+.header .diamond {
+    background-color: transparent;
+    float: right;
+}
+
+.diamond-count,
+.footer {
+    float: right;
+    font-size: 0.9em;
+    line-height: var(--block-size);
+    color: green;
+}
+
+.diamond-count {
+    float: right;
+}
+
+.footer {
+    text-align: center;
+}
+
+.help {
+    float: left;
+    font-size: 0.9em;
+    line-height: var(--block-size);
+    color: green;
+}
+
+.bye {
+    animation: 1s linear teleport;
+    animation-fill-mode: forwards;
+}
+
+@keyframes teleport {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTI4IDEyODsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6IzFDQTJCQjt9Cgkuc3Qxe2ZpbGw6I0VBQzEwMDt9Cjwvc3R5bGU+PGcgaWQ9Il94MzFfMl8zRF9QcmludGluZyIvPjxnIGlkPSJfeDMxXzFfVlJfR2VhciIvPjxnIGlkPSJfeDMxXzBfVmlydHVhbF9yZWFsaXR5Ii8+PGcgaWQ9Il94MzlfX0F1Z21lbnRlZF9yZWFsaXR5Ii8+PGcgaWQ9Il94MzhfX1RlbGVwb3J0Ij48Zz48ZWxsaXBzZSBjbGFzcz0ic3QxIiBjeD0iNjQiIGN5PSI4OCIgcng9IjUyIiByeT0iMjAiLz48Zz48cmVjdCBoZWlnaHQ9IjgiIHdpZHRoPSI4IiB4PSI5MiIgeT0iMjgiLz48cmVjdCBoZWlnaHQ9IjgiIHdpZHRoPSI4IiB4PSIyOCIgeT0iMTYiLz48cmVjdCBoZWlnaHQ9IjgiIHdpZHRoPSI4IiB4PSI0NCIgeT0iNDAiLz48cGF0aCBkPSJNMTEyLDQwdjM1LjJjLTMuMy0yLjMtNy4zLTQuMi0xMi01LjhWNDRoLTh2MjMuMUM4My4zLDY1LDczLjYsNjQsNjQsNjRjLTQsMC04LDAuMi0xMiwwLjVWNTZoLTh2OS41ICAgICBjLTIuNywwLjQtNS40LDEtOCwxLjZWMzJoLTh2MzcuNGMtNC43LDEuNi04LjcsMy41LTEyLDUuOFY1Nkg4djMyYzAsMTUuNiwyOC45LDI0LDU2LDI0czU2LTguNCw1Ni0yNFY0MEgxMTJ6IE0xNiw4OCAgICAgYzAtNSwxMC4zLTExLjUsMjgtMTQuNHYyOC45QzI2LjMsOTkuNSwxNiw5MywxNiw4OHogTTg4LDEwMS43VjgwaC04djIzYy00LjksMC42LTEwLjIsMS0xNiwxYy00LjIsMC04LjItMC4yLTEyLTAuNVY3Mi41ICAgICBjMy44LTAuMyw3LjgtMC41LDEyLTAuNWMyOS43LDAsNDgsOS4zLDQ4LDE2QzExMiw5Mi42LDEwMy4yLDk4LjUsODgsMTAxLjd6Ii8+PC9nPjwvZz48L2c+PGcgaWQ9Il94MzdfX0dsYXNzZXNzIi8+PGcgaWQ9Il94MzZfX0ZvbGRpbmdfcGhvbmUiLz48ZyBpZD0iX3gzNV9fRHJvbmUiLz48ZyBpZD0iX3gzNF9fUmV0aW5hX3NjYW4iLz48ZyBpZD0iX3gzM19fU21hcnR3YXRjaCIvPjxnIGlkPSJfeDMyX19CaW9uaWNfQXJtIi8+PGcgaWQ9Il94MzFfX0NoaXAiLz48L3N2Zz4=")
+            no-repeat;
+        background-size: 50px 35px;
+        background-position: center center;
+        background-color: #cbdbfc;
+    }
+}
