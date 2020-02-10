@@ -144,7 +144,12 @@ window.onkeydown = event => {
 };
 
 const changePlayerPos = direction => {
+  // set player position
+  let x = 0;
+  let y = 0;
   let [dy, dx] = [0, 0];
+
+  // @ana this needs to not be a switch so we can apply if/else statements
   switch (direction) {
     case UP:
       dy = -1;
@@ -262,11 +267,13 @@ const changePlayerPos = direction => {
     window.open(link);
   };
 
-  const x = player[1] + dx;
-  const y = player[0] + dy;
+  // update player position
+  // also note: i think these are backwards but i'm not sure how these are affecting this
+  x = player[1] + dx;
+  y = player[0] + dy;
+  player = [y, x];
 
   // if (x >= 0 && x < COLS && y >= 0 && y < ROWS && maze[y][x] !== WALL) {
-  player = [y, x];
 
   if (maze[y][x] === DIAMOND) {
     maze[y][x] = EMPTY;
