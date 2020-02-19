@@ -1262,7 +1262,7 @@ let player = [0, 0];
 let bag = 0;
 
 const ROWS = 24;
-const COLS = 49;
+const COLS = 48;
 
 const EMPTY = 0;
 const WALL = 1;
@@ -1417,7 +1417,7 @@ const changePlayerPos = direction => {
     }
 
     // the used links
-    var links = ["open/index.html"];
+    var links = ["open/opened.html"];
 
     openStuff = function() {
         window.open(links);

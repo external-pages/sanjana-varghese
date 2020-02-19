@@ -14,15 +14,16 @@ a {
     grid-template-rows: var(--block-size) calc(25 * var(--block-size)) var(
             --block-size
         );
-    margin: 10px;
+    margin: 1vw;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(49, var(--block-size));
+    grid-template-columns: repeat(48, var(--block-size));
     grid-template-rows: repeat(24, var(--block-size));
     border: 1px solid white;
-    margin: 10px;
+    margin: 1vw;
+    align-items: center;
 }
 
 .block {
@@ -30,23 +31,11 @@ a {
     height: var(--block-size);
 }
 
-.empty {
-}
-
-.wall {
-    background: black;
-    box-sizing: border-box;
-}
-
 .diamond {
     background: url("https://s3.amazonaws.com/external-pages/sanjana-varghese/office_building.png");
     background-size: 2vh;
     background-repeat: no-repeat;
     filter: invert(1);
-}
-
-.exit.show {
-    opacity: 1;
 }
 
 .player {
@@ -66,18 +55,22 @@ a {
     font-size: 0.9em;
     line-height: var(--block-size);
     color: green;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 
 .sanj-text {
     float: left;
     color: green;
-    margin: 20px;
     line-height: 20px;
-    margin-top: -20px;
-    margin-right: 20vw;
-    margin-left: 20vw;
+}
+
+.sanj-text p {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
 
 .help {
@@ -85,26 +78,23 @@ a {
     font-size: 0.9em;
     line-height: var(--block-size);
     color: green;
-    margin-left: 10px;
+    margin-right: 1vw;
+    margin-left: 1vw;
 }
 
-.bye {
-    animation: 1s linear teleport;
-    animation-fill-mode: forwards;
+.not-a-website {
+    display: none;
 }
 
-@keyframes teleport {
-    0% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 0;
-    }
-    100% {
-        background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTI4IDEyODsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6IzFDQTJCQjt9Cgkuc3Qxe2ZpbGw6I0VBQzEwMDt9Cjwvc3R5bGU+PGcgaWQ9Il94MzFfMl8zRF9QcmludGluZyIvPjxnIGlkPSJfeDMxXzFfVlJfR2VhciIvPjxnIGlkPSJfeDMxXzBfVmlydHVhbF9yZWFsaXR5Ii8+PGcgaWQ9Il94MzlfX0F1Z21lbnRlZF9yZWFsaXR5Ii8+PGcgaWQ9Il94MzhfX1RlbGVwb3J0Ij48Zz48ZWxsaXBzZSBjbGFzcz0ic3QxIiBjeD0iNjQiIGN5PSI4OCIgcng9IjUyIiByeT0iMjAiLz48Zz48cmVjdCBoZWlnaHQ9IjgiIHdpZHRoPSI4IiB4PSI5MiIgeT0iMjgiLz48cmVjdCBoZWlnaHQ9IjgiIHdpZHRoPSI4IiB4PSIyOCIgeT0iMTYiLz48cmVjdCBoZWlnaHQ9IjgiIHdpZHRoPSI4IiB4PSI0NCIgeT0iNDAiLz48cGF0aCBkPSJNMTEyLDQwdjM1LjJjLTMuMy0yLjMtNy4zLTQuMi0xMi01LjhWNDRoLTh2MjMuMUM4My4zLDY1LDczLjYsNjQsNjQsNjRjLTQsMC04LDAuMi0xMiwwLjVWNTZoLTh2OS41ICAgICBjLTIuNywwLjQtNS40LDEtOCwxLjZWMzJoLTh2MzcuNGMtNC43LDEuNi04LjcsMy41LTEyLDUuOFY1Nkg4djMyYzAsMTUuNiwyOC45LDI0LDU2LDI0czU2LTguNCw1Ni0yNFY0MEgxMTJ6IE0xNiw4OCAgICAgYzAtNSwxMC4zLTExLjUsMjgtMTQuNHYyOC45QzI2LjMsOTkuNSwxNiw5MywxNiw4OHogTTg4LDEwMS43VjgwaC04djIzYy00LjksMC42LTEwLjIsMS0xNiwxYy00LjIsMC04LjItMC4yLTEyLTAuNVY3Mi41ICAgICBjMy44LTAuMyw3LjgtMC41LDEyLTAuNWMyOS43LDAsNDgsOS4zLDQ4LDE2QzExMiw5Mi42LDEwMy4yLDk4LjUsODgsMTAxLjd6Ii8+PC9nPjwvZz48L2c+PGcgaWQ9Il94MzdfX0dsYXNzZXNzIi8+PGcgaWQ9Il94MzZfX0ZvbGRpbmdfcGhvbmUiLz48ZyBpZD0iX3gzNV9fRHJvbmUiLz48ZyBpZD0iX3gzNF9fUmV0aW5hX3NjYW4iLz48ZyBpZD0iX3gzM19fU21hcnR3YXRjaCIvPjxnIGlkPSJfeDMyX19CaW9uaWNfQXJtIi8+PGcgaWQ9Il94MzFfX0NoaXAiLz48L3N2Zz4=")
-            no-repeat;
-        background-size: 50px 35px;
-        background-position: center center;
-        background-color: #cbdbfc;
+@media (max-device-width: 834px) {
+    .not-a-website {
+        display: block;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+        background-color: green;
+        font-style: italic;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
