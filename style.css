@@ -4,26 +4,25 @@ body {
     background: url("https://s3.amazonaws.com/external-pages/sanjana-varghese/96421a97b83034f52c410befe7cefa20.jpg");
 }
 
+a {
+    color: green;
+}
+
 .frame {
-    --block-size: 3vw;
-    top: 0px;
-    left: 0px;
-    position: absolute;
+    --block-size: 2vw;
     display: grid;
-    grid-template-rows: var(--block-size) calc(12 * var(--block-size)) var(
+    grid-template-rows: var(--block-size) calc(25 * var(--block-size)) var(
             --block-size
         );
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+    margin: 10px;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(24, var(--block-size));
-    grid-template-rows: repeat(12, var(--block-size));
-    border:1px solid white;
+    grid-template-columns: repeat(49, var(--block-size));
+    grid-template-rows: repeat(24, var(--block-size));
+    border: 1px solid white;
+    margin: 10px;
 }
 
 .block {
@@ -41,26 +40,9 @@ body {
 
 .diamond {
     background: url("https://s3.amazonaws.com/external-pages/sanjana-varghese/office_building.png");
-    background-size: 3vh;
+    background-size: 2vh;
     background-repeat: no-repeat;
     filter: invert(1);
-}
-
-/*.diamond::before {
-    text-align: center;
-    font-size: 3em;
-    height: 3vw;
-    line-height: 3vw;
-    color: black;
-    content: "🏢";
-*/
-}
-
-.exit {
-    /*background: ;
-    background-size: 50px 35px;
-    background-position: center center;
-    background-color: lightblue;*/
 }
 
 .exit.show {
@@ -69,7 +51,7 @@ body {
 
 .player {
     background: url("https://s3.amazonaws.com/external-pages/sanjana-varghese/564750.png");
-    background-size: 3vh;
+    background-size: 2vh;
     background-repeat: no-repeat;
     filter: invert(1);
 }
@@ -79,20 +61,23 @@ body {
     float: right;
 }
 
-.diamond-count,
-.footer {
+.diamond-count {
     float: right;
     font-size: 0.9em;
     line-height: var(--block-size);
     color: green;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.diamond-count {
-    float: right;
-}
-
-.footer {
-    text-align: center;
+.sanj-text {
+    float: left;
+    color: green;
+    margin: 20px;
+    line-height: 20px;
+    margin-top: -20px;
+    margin-right: 20vw;
+    margin-left: 20vw;
 }
 
 .help {
@@ -100,6 +85,7 @@ body {
     font-size: 0.9em;
     line-height: var(--block-size);
     color: green;
+    margin-left: 10px;
 }
 
 .bye {
