@@ -17,54 +17,6 @@ a {
   margin: 1vw;
 }
 
-.controls {
-  position: fixed;
-  border: 1px solid white;
-  width: 120px;
-  height: 120px;
-  color: white;
-  font-size: 40px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 56;
-}
-
-#controls-up {
-  top: 20px;
-  left: calc(50vw - 60px);
-}
-
-#controls-right {
-  top: calc(50vh - 60px);
-  right: 20px;
-}
-
-#controls-down {
-  bottom: 20px;
-  left: calc(50vw - 60px);
-}
-
-#controls-left {
-  top: calc(50vh - 60px);
-  left: 20px;
-}
-
 .board {
   display: grid;
   grid-template-columns: repeat(48, var(--block-size));
@@ -130,19 +82,56 @@ a {
   margin-left: 1vw;
 }
 
-.not-a-website {
+.controls {
   display: none;
 }
 
-@media (max-device-width: 834px) {
-  .not-a-website {
-    display: block;
+@media only screen and (min-device-width: 320px) and (max-device-width: 829px) and (-webkit-min-device-pixel-ratio: 2) {
+  .controls {
     position: fixed;
-    width: 100%;
-    text-align: center;
-    background-color: green;
-    font-style: italic;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    border: 1px solid white;
+    width: 120px;
+    height: 120px;
+    color: white;
+    font-size: 40px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 56;
+  }
+
+  #controls-up {
+    top: 20px;
+    left: calc(50vw - 60px);
+  }
+
+  #controls-right {
+    top: calc(50vh - 60px);
+    right: 20px;
+  }
+
+  #controls-down {
+    bottom: 20px;
+    left: calc(50vw - 60px);
+  }
+
+  #controls-left {
+    top: calc(50vh - 60px);
+    left: 20px;
   }
 }
